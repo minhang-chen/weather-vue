@@ -1,14 +1,12 @@
 <template>
   <div class="weather-wrapper">
-    <transtion></transtion>
-    <search-model v-if="display"></search-model>
+    <search-model v-if="display" @palceName = 'getPlaceName' @palceId = 'getPlaceId'></search-model>
     <div class="img-wrapper" @click="searchNone()">
       <img src="../images/2.jpg" alt="">
       <div class="wrapper-left">
         <div @click.stop="searchBlock()"><i class="location iconfont icon-dingwei"></i></div>
         <div class="place-name">
-          <span>中国</span>
-          <span>北京</span>
+          <span>{{placeName}}</span>
         </div>
         <div class="time">
           <div>{{date}}</div>
@@ -38,15 +36,15 @@
   import axios from 'axios';
   import search from '../components/search.vue';
 
-  const cityId = '101210607';
   export default {
     data () {
       return {
         time: '',
         date: '',
         times: [],
-        cityIds: cityId,
-        display: false
+        placeId: ' 101010100',
+        display: false,
+        placeName: '北京'
       };
     },
     mounted: function () {
@@ -60,11 +58,19 @@
     components: {
       'search-model': search
     },
+    watch: {
+      placeName: {
+        handler: function () {
+          this.getWeather();
+        },
+        deep: true
+      }
+    },
     methods: {
       getWeather: function () {
         axios({
           method: 'get',
-          url: '/api/app/weather/listWeather?cityIds=' + this.cityIds
+          url: '/api/app/weather/listWeather?cityIds=' + this.placeId
         }).then(function (response) {
           console.log(response);
         }, function (error) {
@@ -83,12 +89,19 @@
       },
       searchNone: function () {
         this.display = false;
+      },
+      getPlaceName: function (data) {
+        this.placeName = data;
+      },
+      getPlaceId: function (data) {
+        this.placeId = data;
+        console.log(this.placeId);
       }
     }
   };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .weather-wrapper{
     position: relative;
     width: 950px;
