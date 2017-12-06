@@ -1,0 +1,31 @@
+<div class="weather-wrapper">
+  <search-model v-if="display" @palceName = 'getPlaceName' @palceId = 'getPlaceId'></search-model>
+  <div class="img-wrapper" @click="searchNone()">
+    <img src="../images/2.jpg" alt="">
+    <div class="wrapper-left">
+      <div @click.stop="searchBlock()"><i class="location iconfont icon-dingwei"></i></div>
+      <div class="place-name">
+        <span>{{placeName}}</span>
+      </div>
+      <div class="time">
+        <div>{{date}}</div>
+        <div>{{time}}</div>
+      </div>
+    </div>
+    <div class="travle-name">
+      故宫
+    </div>
+  </div>
+  <div class="weather-item">
+    <div class="u-item">
+      <div class="item-list details">
+        <div class="temperature">
+          26°
+        </div>
+        <div class="time time-bg">
+          MONDAY 27
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
