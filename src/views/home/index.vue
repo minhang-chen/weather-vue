@@ -2,7 +2,7 @@
 
 <script>
   import axios from 'axios';
-  import search from '../components/search.vue';
+  import search from '../../components/search.vue';
 
   export default {
     data () {
@@ -69,4 +69,4 @@
   };
 </script>
 
-<style lang="scss" src='./index.sass'></style>
+<style lang="scss" src='./index.scss'></style>
