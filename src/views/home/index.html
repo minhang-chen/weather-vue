@@ -2,19 +2,25 @@
   <search-model v-if="display" @palceName = 'getPlaceName' @palceId = 'getPlaceId'></search-model>
   <div class="img-wrapper" @click="searchNone()">
     <img src="../../images/2.jpg" alt="">
-    <div class="wrapper-left">
-      <div @click.stop="searchBlock()"><i class="location iconfont icon-dingwei"></i></div>
-      <div class="place-name">
-        <span>{{placeName}}</span>
-      </div>
-      <div class="time">
-        <div>{{date}}</div>
-        <div>{{time}}</div>
+    <div class="wrapper-right">
+      <div @click.stop="searchBlock()"><i class="location iconfont icon-dizhi1"></i></div>
+      <div class="text-wrapper">
+        <div class="place-name">
+          <span>{{placeName}}</span>
+        </div>
+        <div class="time">
+          <!--<div>{{date}}</div>-->
+          <div>{{time}} <span>{{acronym}}</span></div>
+        </div>
       </div>
     </div>
     <div class="travle-name">
       故宫
     </div>
+    <div class="u-like">
+      <i v-if="" class=" iconfont icon-favorite"></i>
+    </div>
+
   </div>
   <div class="weather-item">
     <div class="u-item">

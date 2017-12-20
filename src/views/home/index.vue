@@ -3,6 +3,7 @@
 <script>
   import axios from 'axios';
   import search from '../../components/search.vue';
+  import url from '../../api/url.js';
 
   export default {
     data () {
@@ -12,7 +13,8 @@
         times: [],
         placeId: ' 101010100',
         display: false,
-        placeName: '北京'
+        placeName: '北京',
+        acronym:''
       };
     },
     mounted: function () {
@@ -38,7 +40,7 @@
       getWeather: function () {
         axios({
           method: 'get',
-          url: '/api/app/weather/listWeather?cityIds=' + this.placeId
+          url: url.getCityWeather + this.placeId
         }).then(function (response) {
           console.log(response);
         }, function (error) {
@@ -50,6 +52,11 @@
         const hour = oDate.getHours();
         const minute = ((oDate.getMinutes()).toString()).length === 1 ? '0' + oDate.getMinutes() : oDate.getMinutes();
         this.date = oDate.getFullYear() + '年' + (oDate.getMonth() + 1) + '月' + oDate.getDate() + '日';
+        if(hour > 12){
+          this.acronym = 'pm';
+        }else{
+          this.acronym = 'am'
+        }
         this.time = hour + ':' + minute;
       },
       searchBlock: function () {
