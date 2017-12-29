@@ -17,28 +17,43 @@
       img{
         width: 100%;
       }
-      .wrapper-left{
+      .wrapper-right{
         position: absolute;
         top: 36px;
-        left: 55px;
-        text-align: center;
+        right: 55px;
+        text-align: right;
+        color: #fff;
         .location{
           font-size: 60px;
           cursor: pointer;
         }
-        .place-name{
-          margin-top: 10px;
+        .text-wrapper{
+          margin-right: 15px;
+          .place-name{
+            margin-top: 10px;
+          }
+          .time{
+            margin-top: 10px;
+            //letter-spacing: 10px;
+          }
         }
-        .time{
-          margin-top: 10px;
-        }
-
       }
       .travle-name{
         position: absolute;
         top: 36px;
-        right: 55px;
+        left: 55px;
         font-size: 35px;
+        color: #fff;
+      }
+      .u-like{
+        position: absolute;
+        bottom: 25px;
+        right: 65px;
+        color: #fff;
+        font-size: 30px;
+        .icon-favorite{
+          cursor: pointer;
+        }
       }
     }
     .weather-item{
