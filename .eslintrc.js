@@ -13,7 +13,11 @@ module.exports = {
   // extends: 'standard',
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
+    'prettier'
+  ],
+  extends:[
+    'prettier'  
   ],
   // add your custom rules here
   'rules': {
@@ -25,5 +29,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     //强制语句分号结尾
     // "semi": [2, "always"],
+    "prettier/prettier": "warn"
   }
 }
